@@ -16,4 +16,9 @@ public class HomeController {
     public String getMessage() {
         return homeService.getMessage();
     }
+
+    @GetMapping("/set")
+    public String setMessage(){
+        return "setMessage is called";
+    }
 }
