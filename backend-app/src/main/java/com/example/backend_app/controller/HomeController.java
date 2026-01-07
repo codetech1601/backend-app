@@ -1,11 +1,10 @@
-package com.example.backend_app.Controller;
+package com.example.backend_app.controller;
 
 
-import com.example.backend_app.Service.HomeService;
+import com.example.backend_app.Entity.User;
+import com.example.backend_app.service.HomeService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 
 @CrossOrigin(origins = "*")
@@ -24,4 +23,12 @@ public class HomeController {
     public String setMessage(){
         return "setMessage is called";
     }
+
+    @PostMapping("/save")
+    public String saveUser(@RequestBody User user){
+   homeService.saveUser(user);
+        return "User:- "+user.getName()+" saved successfully";
+        //return user.getName();
+    }
+
 }
